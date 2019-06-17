@@ -1,8 +1,21 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
-  </div>
+  <v-app>
+		<v-alert :value="true" type="success">
+			This is a success alert.
+		</v-alert>
+
+		<v-alert :value="true" type="info">
+			This is a info alert.
+		</v-alert>
+
+		<v-alert :value="true" type="warning">
+			This is a warning alert.
+		</v-alert>
+
+		<v-alert :value="true" type="error">
+		This is a error alert.
+		</v-alert>
+	</v-app>
 </template>
 
 <script>
@@ -12,12 +25,4 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
