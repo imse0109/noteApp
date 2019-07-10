@@ -22,6 +22,10 @@ package io.cordova.noteapp;
 import android.os.Bundle;
 import org.apache.cordova.*;
 
+import android.webkit.WebView;
+import android.webkit.WebSettings;
+import org.apache.cordova.engine.SystemWebViewEngine;
+
 public class MainActivity extends CordovaActivity
 {
     @Override
@@ -35,7 +39,15 @@ public class MainActivity extends CordovaActivity
             moveTaskToBack(true);
         }
 
+        super.init();
+        SystemWebViewEngine systemWebViewEngine = (SystemWebViewEngine) appView.getEngine();
+
+        WebView webView = (WebView) systemWebViewEngine.getView();
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setTextSize(WebSettings.TextSize.NORMAL);
+
         // Set by <content src="index.html" /> in config.xml
         loadUrl(launchUrl);
+
     }
 }
