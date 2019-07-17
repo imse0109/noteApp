@@ -25,5 +25,11 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.todo .container .v-list{padding:0;}
+.todo .container .v-list > div{border:1px solid #1976d2;margin:6px 0 0 0;height:32px;}
+.todo .container .v-list >>> .v-list__tile{height:32px;}
+/* .todo .container .input-group__details{min-height:1px;}
+.todo .container .list__tile__content{width:69%;}
+.todo .container .list__tile__title{font-family:"NotoSansKR", sans-serif;font-size:14px;font-weight:900;} */
 </style>
