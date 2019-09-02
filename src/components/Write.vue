@@ -1,16 +1,36 @@
 <template>
 	<div class="write">
 		<v-container bg fill-height grid-list-md text-xs-center>
-			<textarea></textarea>
-			
-			<v-btn block color="primary" to="/List">확인</v-btn>
+			<textarea v-model="memo"></textarea>
+			<v-btn block color="primary" @click="localMemo">확인</v-btn>
 		</v-container>
 	</div>
 </template>
 
 <script>
 export default {
-  
+	data(){
+		return{
+			memoArray: [],
+			memo: null,
+  		}
+	},  
+  	methods:{
+	  	localMemo(){
+			const todoData = {
+				memoArr : this.memoArray,
+				memo : this.memo,
+			}
+			if(this.memo !== null && this.memo !== ''){
+				this.memoArray.push(this.memo);
+				this.$store.dispatch('localMemo', todoData);
+			}
+		},
+	},
+	created(){
+		this.memoArray = JSON.parse(localStorage.getItem('item'));
+    }
+
 }
 </script>
 
