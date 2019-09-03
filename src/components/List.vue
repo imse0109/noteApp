@@ -23,7 +23,9 @@ export default {
   		}
 	},
 	created(){
-		this.memoArray = JSON.parse(localStorage.getItem('item'));
+		if(JSON.parse(localStorage.getItem('item')) !== null){
+			this.memoArray = JSON.parse(localStorage.getItem('item'));
+		}
     }
 }
 </script>

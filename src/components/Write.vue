@@ -10,7 +10,7 @@
 <script>
 export default {
 	data(){
-		return{
+		return {
 			memoArray: [],
 			memo: null,
   		}
@@ -21,14 +21,16 @@ export default {
 				memoArr : this.memoArray,
 				memo : this.memo,
 			}
-			if(this.memo !== null && this.memo !== ''){
+			if(this.memo !== null || this.memo !== ''){
 				this.memoArray.push(this.memo);
 				this.$store.dispatch('localMemo', todoData);
 			}
 		},
 	},
 	created(){
-		this.memoArray = JSON.parse(localStorage.getItem('item'));
+		if(JSON.parse(localStorage.getItem('item')) !== null){
+			this.memoArray = JSON.parse(localStorage.getItem('item'));
+		}
     }
 
 }
