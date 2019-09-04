@@ -21,10 +21,8 @@ export default {
 				memoArr : this.memoArray,
 				memo : this.memo,
 			}
-			if(this.memo !== null || this.memo !== ''){
-				this.memoArray.push(this.memo);
-				this.$store.dispatch('localMemo', todoData);
-			}
+			this.memoArray.push(this.memo);
+			this.$store.dispatch('localMemo', todoData);
 		},
 	},
 	created(){

@@ -11,9 +11,12 @@ export const store = new Vuex.Store({
     },
     actions: {
         localMemo({commit}, payload){
-            localStorage.setItem('item',JSON.stringify(payload.memoArr));
-
-            router.push('/List')
+            if(payload.memo !== null && payload.memo !== ''){
+                localStorage.setItem('item',JSON.stringify(payload.memoArr));
+                router.push('/')
+            }else{
+                router.push('/')
+            }
         },
     }
 })
