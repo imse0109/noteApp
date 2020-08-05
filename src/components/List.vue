@@ -5,7 +5,7 @@
 				<template v-for="(memo,index) in memoArray">
 					<v-list-tile>
 						<v-list-tile-content>
-							<v-list-tile-title class="list_item_title" v-text="memo" @click=""></v-list-tile-title>
+							<v-list-tile-title class="list_item_title" v-text="memo" @click="ViewMemo"></v-list-tile-title>
 						</v-list-tile-content>
 					</v-list-tile>
 				</template>
@@ -22,8 +22,18 @@ export default {
 			memo: null,
   		}
 	},
+	methods:{
+	  	ViewMemo(e){
+
+			// 값을 이용하여 인덱스 값을 찾는다
+			var memoIndex = JSON.parse(localStorage.getItem('item')).indexOf(e.currentTarget.innerHTML);
+			this.$store.dispatch('ViewMemo', memoIndex);
+		},
+	},
 	created(){
 		if(JSON.parse(localStorage.getItem('item')) !== null){
+
+			// 로컬스토리지에 있는 값을 가져온다.
 			this.memoArray = JSON.parse(localStorage.getItem('item'));
 		}
     }
