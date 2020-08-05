@@ -9,28 +9,11 @@
 
 <script>
 export default {
-	data(){
-		return {
-			memoArray: [],
-			memo: null,
-  		}
-	},  
   	methods:{
 	  	localMemo(){
-			const todoData = {
-				memoArr : this.memoArray,
-				memo : this.memo,
-			}
-			this.memoArray.push(this.memo);
-			this.$store.dispatch('localMemo', todoData);
+			this.$store.dispatch('localMemo', this.memo);
 		},
 	},
-	created(){
-		if(JSON.parse(localStorage.getItem('item')) !== null){
-			this.memoArray = JSON.parse(localStorage.getItem('item'));
-		}
-    }
-
 }
 </script>
 

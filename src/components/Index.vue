@@ -1,8 +1,5 @@
 <template>
   <v-container bg fill-height grid-list-md text-xs-center>
-	  	<!-- <v-navigation-drawer v-model="sidebar" app>
-			<WriteVue></WriteVue>
-		</v-navigation-drawer> -->
 
 		<ListVue></ListVue>
 
@@ -16,16 +13,10 @@
 	</v-container>
 </template>
 <script>
-// import WriteVue from './Write.vue'
 import ListVue from './List.vue'
 export default {
 	components: {
 		ListVue
-	},
-	data () {
-		return {
-			sidebar : false
-		}
 	},
 }
 </script>
