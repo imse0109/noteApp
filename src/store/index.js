@@ -15,7 +15,7 @@ export const store = new Vuex.Store({
         localMemo({commit}, payload){
             if(payload !== null && payload !== '' && payload !== undefined){
 
-                // 로컬스토리지에 값이 있다면 값을 저장하고 푸시한다. (새로고침시) 
+                // 로컬스토리지에 값이 있다면 값을 저장하고 푸시한다. (새로고침시, 리로드시) 
                 if(JSON.parse(localStorage.getItem('item')) !== null){
                     this.state.memoArray = JSON.parse(localStorage.getItem('item'));
                 }
@@ -50,9 +50,12 @@ export const store = new Vuex.Store({
         ModifyEndMemo({commit}, payload){
             if(payload !== null && payload !== '' && payload !== undefined){
 
-                this.state.memoArray[payload.memoIndex] = payload.memo;
+                // 로컬스토리지에 값이 있다면 값을 저장하고 푸시한다. (새로고침시, 리로드시) 
+                if(JSON.parse(localStorage.getItem('item')) !== null){
+                    this.state.memoArray = JSON.parse(localStorage.getItem('item'));
+                }
 
-                console.log(this.state.memoArray);
+                this.state.memoArray[payload.memoIndex] = payload.memo;
 
                 // 로컬스토리지 저장
                 localStorage.setItem('item',JSON.stringify(this.state.memoArray));
@@ -63,6 +66,12 @@ export const store = new Vuex.Store({
         },
         deleteMemo({commit}, payload){
             if(payload !== null && payload !== ''){
+
+                // 로컬스토리지에 값이 있다면 값을 저장하고 푸시한다. (새로고침시, 리로드시) 
+                if(JSON.parse(localStorage.getItem('item')) !== null){
+                    this.state.memoArray = JSON.parse(localStorage.getItem('item'));
+                }
+
                 this.state.memoArray.splice(payload, 1);
 
                 // 로컬스토리지 저장

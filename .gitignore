@@ -1,6 +1,7 @@
 .DS_Store
 node_modules/
 /dist/
+/ionic-app-note/platforms/android/build/android-profile/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
