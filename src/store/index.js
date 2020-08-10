@@ -13,7 +13,7 @@ export const store = new Vuex.Store({
     },
     actions: {
         localMemo({commit}, payload){
-            if(payload !== null && payload !== ''){
+            if(payload !== null && payload !== '' && payload !== undefined){
 
                 // 로컬스토리지에 값이 있다면 값을 저장하고 푸시한다. (새로고침시) 
                 if(JSON.parse(localStorage.getItem('item')) !== null){
@@ -38,6 +38,39 @@ export const store = new Vuex.Store({
                 router.push('/View')
             }else{
                 router.push('/View')
+            }
+        },
+        ModifyMemo({commit}, payload){
+            if(payload !== null && payload !== ''){
+                router.push('/Modify')
+            }else{
+                router.push('/Modify')
+            }
+        },
+        ModifyEndMemo({commit}, payload){
+            if(payload !== null && payload !== '' && payload !== undefined){
+
+                this.state.memoArray[payload.memoIndex] = payload.memo;
+
+                console.log(this.state.memoArray);
+
+                // 로컬스토리지 저장
+                localStorage.setItem('item',JSON.stringify(this.state.memoArray));
+                router.push('/')
+            }else{
+                router.push('/')
+            }
+        },
+        deleteMemo({commit}, payload){
+            if(payload !== null && payload !== ''){
+                this.state.memoArray.splice(payload, 1);
+
+                // 로컬스토리지 저장
+                localStorage.setItem('item',JSON.stringify(this.state.memoArray));
+
+                router.push('/')
+            }else{
+                router.push('/')
             }
         },
     }

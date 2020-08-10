@@ -3,8 +3,8 @@
 		<v-container bg fill-height grid-list-md text-xs-center>
 			<p v-text="memo"></p>
 			 <div class="btn_wrap">
-				<v-btn color="warning" to="/Write">수정</v-btn>
-				<v-btn color="error">삭제</v-btn>
+				<v-btn color="warning" @click="ModifyMemo">수정</v-btn>
+				<v-btn color="error" @click="deleteMemo">삭제</v-btn>
 			</div>
 		</v-container>
 	</div>
@@ -12,6 +12,16 @@
 
 <script>
 export default {
+	methods:{
+	  	ModifyMemo(e){
+			var memoIndex = JSON.parse(localStorage.getItem('index'));
+			this.$store.dispatch('ModifyMemo', memoIndex);
+		},
+		deleteMemo(e){
+			var memoIndex = JSON.parse(localStorage.getItem('index'));
+			this.$store.dispatch('deleteMemo', memoIndex);
+		},
+	},
   	created(){
 		this.memo = JSON.parse(localStorage.getItem('item'))[localStorage.getItem('index')];
     }
