@@ -44,6 +44,6 @@ export default {
 .todo{width:100%;height:100%;}
 .todo .container{padding:0;}
 .todo .container .v-list{padding:0;}
-.todo .container .v-list > div{border:1px solid #1976d2;margin:6px 0 0 0;height:32px;}
-.todo .container .v-list >>> .v-list__tile{height:32px;}
+.todo .container .v-list > div{border:1px solid #1976d2;margin:6px 0 0 0;height:42px;}
+.todo .container .v-list >>> .v-list__tile{height:42px;}
 </style>

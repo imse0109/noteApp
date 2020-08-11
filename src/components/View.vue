@@ -1,7 +1,7 @@
 <template>
 	<div class="view">
 		<v-container bg fill-height grid-list-md text-xs-center>
-			<p v-text="memo"></p>
+			<pre v-text="memo"></pre>
 			 <div class="btn_wrap">
 				<v-btn color="warning" @click="ModifyMemo">수정</v-btn>
 				<v-btn color="error" @click="deleteMemo">삭제</v-btn>
@@ -36,5 +36,5 @@ export default {
 .view .v-btn:first-child{left:16px;width:43%;}
 .view .v-btn:last-child{right:16px;left:auto;width:43%;}
 .view .v-btn:hover{position:fixed;}
-.view p{width:100%;height:100%;padding:12px;font-size:12px;text-align:left;background:#1976d2;color:#fff;margin:0;word-break:break-all;}
+.view pre{width:100%;height:100%;padding:12px;font-size:12px;text-align:left;background:#1976d2;color:#fff;margin:0;word-break:break-all;}
 </style>
