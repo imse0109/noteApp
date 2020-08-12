@@ -1,11 +1,14 @@
 <template>
 	<div class="todo">
 		<v-container>
+			
+			<SearchVue></SearchVue>
+
 			<v-list two-line>
 				<template v-for="(memo,index) in memoArray">
-					<v-list-tile>
+					<v-list-tile :key="memo + index" v-show="memo.filtered == 'y'">
 						<v-list-tile-content>
-							<v-list-tile-title class="list_item_title" v-text="memo" @click="ViewMemo"></v-list-tile-title>
+							<v-list-tile-title class="list_item_title" v-text="memo.title" @click="ViewMemo(index)"></v-list-tile-title>
 						</v-list-tile-content>
 					</v-list-tile>
 				</template>
@@ -15,7 +18,11 @@
 </template>
 
 <script>
+import SearchVue from './Search.vue'
 export default {
+	components: {
+		SearchVue
+	},
 	data(){
 		return{
 			memoArray: [],
@@ -23,11 +30,8 @@ export default {
   		}
 	},
 	methods:{
-	  	ViewMemo(e){
-
-			// 값을 이용하여 인덱스 값을 찾는다
-			var memoIndex = JSON.parse(localStorage.getItem('item')).indexOf(e.currentTarget.innerHTML);
-			this.$store.dispatch('ViewMemo', memoIndex);
+	  	ViewMemo(idx){
+			this.$store.dispatch('ViewMemo', idx);
 		},
 	},
 	created(){
@@ -35,9 +39,12 @@ export default {
 
 			// 로컬스토리지에 있는 값을 가져온다.
 			this.memoArray = JSON.parse(localStorage.getItem('item'));
+
 		}
-    }
+	},
 }
+
+		
 </script>
 
 <style scoped>

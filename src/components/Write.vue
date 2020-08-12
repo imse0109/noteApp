@@ -9,9 +9,19 @@
 
 <script>
 export default {
+	data(){
+        return {
+			memo: null,
+			filtered: 'y',
+		}
+	},
   	methods:{
 	  	localMemo(){
-			this.$store.dispatch('localMemo', this.memo);
+			const todoData = {
+				title : this.memo,
+				filtered : 'y',
+			}
+			this.$store.dispatch('localMemo', todoData);
 		},
 	},
 }

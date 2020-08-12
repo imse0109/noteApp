@@ -1,7 +1,7 @@
 <template>
 	<div class="view">
 		<v-container bg fill-height grid-list-md text-xs-center>
-			<pre v-text="memo"></pre>
+			<pre v-text="memo.title"></pre>
 			 <div class="btn_wrap">
 				<v-btn color="warning" @click="ModifyMemo">수정</v-btn>
 				<v-btn color="error" @click="deleteMemo">삭제</v-btn>

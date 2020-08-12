@@ -1,7 +1,7 @@
 <template>
 	<div class="write">
 		<v-container bg fill-height grid-list-md text-xs-center>
-			<textarea v-model="memo"></textarea>
+			<textarea v-model="memo.title"></textarea>
 			<v-btn block color="primary" @click="ModifyEndMemo">확인</v-btn>
 		</v-container>
 	</div>
