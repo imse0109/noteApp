@@ -5,6 +5,7 @@ import Write from '@/components/Write'
 import View from '@/components/View'
 import Modify from '@/components/Modify'
 import List from '@/components/List'
+import Search from '@/components/Search'
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
       path: '/List',
       name: 'List',
 		  component: List,
+    },
+    {
+      path: '/Search',
+      name: 'Search',
+		  component: Search,
     }
   ]
 })
