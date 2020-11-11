@@ -13,7 +13,7 @@ export const store = new Vuex.Store({
     },
     actions: {
         localMemo({commit}, payload){
-            if(payload !== null && payload !== '' && payload !== undefined){
+            if(payload.title !== null && payload.title !== '' && payload.title !== undefined){
 
                 // 로컬스토리지에 값이 있다면 값을 저장하고 푸시한다. (새로고침시, 리로드시) 
                 if(JSON.parse(localStorage.getItem('item')) !== null){

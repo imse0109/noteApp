@@ -8,6 +8,9 @@
 				<v-btn slot="activator" color="primary" to="/Write" fab>
 					<v-icon>add</v-icon>
 				</v-btn>
+				<v-btn slot="activator" color="primary" fab>
+					<v-icon>backup</v-icon>
+				</v-btn>
 			</v-flex>
 		</v-layout>
 	</v-container>
